@@ -15,7 +15,7 @@ class _TaxDocumentState extends State<TaxDocument> {
     return Scaffold(
       body: Column(
         children: [
-          customAppBar(context, "Joining Document"),
+          customAppBar(context, "Tax Document"),
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Column(

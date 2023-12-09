@@ -33,7 +33,7 @@ Widget customAppBar(context, String title) {
 Widget customListTile(title, subtitle) {
   return ListTile(
     leading: Image.asset(
-      "images/pdflogo.png",
+      "assets/pdflogo.png",
       height: 34,
       width: 34,
       fit: BoxFit.contain,
@@ -44,7 +44,7 @@ Widget customListTile(title, subtitle) {
     subtitle: Text(subtitle),
     trailing: InkWell(
       onTap: () {},
-      child: Image.asset("images/eye.png"),
+      child: Image.asset("assets/eye.png"),
     ),
   );
 }

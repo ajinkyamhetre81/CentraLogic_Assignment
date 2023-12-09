@@ -26,7 +26,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
             return Row(
               children:[
                 Expanded(
-                  child:Image.asset("images/home.png",fit: BoxFit.fill),
+                  child:Image.asset("assets/home.png",fit: BoxFit.fill),
                 ),
                 Expanded(
                   child:SingleChildScrollView(
@@ -43,7 +43,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
             return SingleChildScrollView(
               child:Column(
                 children:[
-                  Image.asset("images/home.png",fit: BoxFit.fill,width: 600,),
+                  Image.asset("assets/home.png",fit: BoxFit.fill,width: 600,),
                   Padding(
                     padding:const EdgeInsets.all(20.0),
                     child:_buildCommonUI(),
@@ -64,7 +64,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
       Column(
         mainAxisAlignment:MainAxisAlignment.start,
         children:[
-          Image.asset("images/centrajob.png", width: 400),        
+          Image.asset("assets/centrajob.png", width: 400),        
         ],
       ),
       const SizedBox(height:15),
@@ -81,7 +81,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
               border:Border.all(color: Colors.grey),
               borderRadius:BorderRadius.circular(5),
             ),
-            child:Image.asset("images/google.png"),
+            child:Image.asset("assets/google.png"),
           ),
           const SizedBox(width: 15),
           Container(
@@ -92,7 +92,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
               border:Border.all(color: Colors.grey),
               borderRadius:BorderRadius.circular(5),
             ),
-            child:Image.asset("images/facebook.png"),
+            child:Image.asset("assets/facebook.png"),
           ),
           const SizedBox(width: 15),
           Container(
@@ -103,7 +103,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
               border:Border.all(color:Colors.grey),
               borderRadius:BorderRadius.circular(5),
             ),
-            child:Image.asset("images/ios.png"),
+            child:Image.asset("assets/ios.png"),
           ),
         ],
       ),
@@ -231,7 +231,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
             );
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>MediaQuery.of(context).size.width>600?DekstopScreen(): MobileScreen()),
+                MaterialPageRoute(builder: (context) =>MediaQuery.of(context).size.width>700?DekstopScreen(): MobileScreen()),
               );
             
           } else if (state is RegisterErrorState) {

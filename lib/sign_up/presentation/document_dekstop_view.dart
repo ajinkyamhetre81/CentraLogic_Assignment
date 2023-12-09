@@ -27,8 +27,8 @@ class _DekstopScreenState extends State<DekstopScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(20),
-                child: Image.asset("images/logo.png"),
+                padding: const EdgeInsets.all(22),
+                child: Image.asset("assets/logo.png"),
               ),
               Center(
                 child: Container(
@@ -43,7 +43,7 @@ class _DekstopScreenState extends State<DekstopScreen> {
                   child: Column(
                     children: [
                       ListTile(
-                        leading: Image.asset("images/homeIcon.png"),
+                        leading: Image.asset("assets/homeIcon.png"),
                         title: const Text('Home'),
                         onTap: () {
                           setState(() {
@@ -52,7 +52,7 @@ class _DekstopScreenState extends State<DekstopScreen> {
                         },
                       ),
                       ListTile(
-                        leading: Image.asset("images/documentIcon.png"),
+                        leading: Image.asset("assets/documentIcon.png"),
                         title: const Text('Documents'),
                         onTap: () {
                           setState(() {
@@ -104,7 +104,7 @@ class _DocumentTypesState extends State<DocumentTypes> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(color: Colors.grey, width: 0.4)),
@@ -113,10 +113,15 @@ class _DocumentTypesState extends State<DocumentTypes> {
                     children: [
                       CircleAvatar(
                         radius: 15,
-                        backgroundImage: NetworkImage('images/charles.png'),
+                        backgroundImage: NetworkImage('assets/charles.png'),
                       ),
                       SizedBox(width: 8),
-                      Text("Charles"),
+                      Text(
+                        "Charles",
+                        style: TextStyle(
+                          fontSize: 17
+                        ),
+                      ),
                       SizedBox(
                         width: 10,
                       ),
@@ -163,6 +168,7 @@ class _DocumentTypesState extends State<DocumentTypes> {
                         child: Text(
                           "Joining Document",
                           style: TextStyle(
+                            fontSize: 17,
                               color: currentTabIndex == 1
                                   ? Colors.white
                                   : Colors.grey),
@@ -184,6 +190,7 @@ class _DocumentTypesState extends State<DocumentTypes> {
                                 : Colors.grey.shade200),
                         child: Text("Transaction Document",
                             style: TextStyle(
+                              fontSize: 17,
                                 color: currentTabIndex == 2
                                     ? Colors.white
                                     : Colors.grey))),
@@ -205,6 +212,7 @@ class _DocumentTypesState extends State<DocumentTypes> {
                                 : Colors.grey.shade200),
                         child: Text("Team Document",
                             style: TextStyle(
+                              fontSize: 17,
                                 color: currentTabIndex == 3
                                     ? Colors.white
                                     : Colors.grey))),
@@ -230,6 +238,7 @@ class _DocumentTypesState extends State<DocumentTypes> {
                                 : Colors.grey.shade200),
                         child: Text("Tax Document",
                             style: TextStyle(
+                              fontSize: 17,
                                 color: currentTabIndex == 4
                                     ? Colors.white
                                     : Colors.grey))),

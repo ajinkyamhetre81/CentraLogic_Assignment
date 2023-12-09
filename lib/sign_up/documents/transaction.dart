@@ -23,7 +23,7 @@ class _TransactionDocumentState extends State<TransactionDocument> {
 
   Future<void> loadJsonData() async {
     String jsonData = await DefaultAssetBundle.of(context)
-        .loadString('images/documentjson.json');
+        .loadString('assets/documentjson.json');
     Welcome welcome = Welcome.fromJson(json.decode(jsonData));
     transactions = welcome.value.first.transaction;
 

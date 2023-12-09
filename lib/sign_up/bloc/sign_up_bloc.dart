@@ -20,7 +20,7 @@ class RegisterBloc extends Bloc<RegisterEvent,RegisterState> {
         emit(RegisterErrorState("Please enter a valid email address"));
       }
        else{
-        emit(RegisterSuccessState("OTP Generated Successfully"));
+        emit(RegisterSuccessState("Logged in  Successfully"));
       }
     }); 
   }

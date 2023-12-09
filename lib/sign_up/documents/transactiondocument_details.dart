@@ -45,7 +45,7 @@ class TransactionDocumentDetails extends StatelessWidget {
                         children: [
                           Text(document.title.toString()),
                           GestureDetector(
-                            child: Image.asset("images/eye.png"),
+                            child: Image.asset("assets/eye.png"),
                             onTap: () async {
                               final Uri url = Uri.parse(document.url);
                               Navigator.push(
