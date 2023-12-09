@@ -1,12 +1,9 @@
 
-import 'package:assignment/sign_up/presentation/document_mobile_view.dart';
 import 'package:assignment/sign_up/presentation/responsive_layout.dart';
 import 'package:assignment/sign_up/bloc/sign_up_bloc.dart';
-import 'package:assignment/sign_up/presentation/trail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'sign_up/documents/transaction.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Register',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home:  DekstopScreen(),
+      home:  const MyHomePage(),
     );
   }
 }

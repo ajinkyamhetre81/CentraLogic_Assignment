@@ -1,7 +1,7 @@
 import 'package:assignment/sign_up/bloc/sign_up_event.dart';
 import 'package:assignment/sign_up/bloc/sign_up_state.dart';
+import 'package:assignment/sign_up/presentation/document_dekstop_view.dart';
 import 'package:assignment/sign_up/presentation/document_mobile_view.dart';
-import 'package:assignment/sign_up/presentation/trail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -216,7 +216,7 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
             color: const Color.fromARGB(255, 21, 70, 95),
             borderRadius: BorderRadius.circular(8.0),
             child: const Text(
-              "Send OTP",
+              "Log in",
               style: TextStyle(fontSize: 20),
             ),
           );
@@ -245,11 +245,19 @@ class _ResponsiveRegisterPageState extends State<ResponsiveRegisterPage> {
         },
       ),
       ),
-      const SizedBox(height:16.0),
+      const SizedBox(
+        height:16.0
+      ),
       const Column(
         mainAxisAlignment:MainAxisAlignment.end,
         children: [
-          Text("@2023, CentraLogic Pvt Ltd, All Rights Reserved",style: TextStyle(fontSize:15,color:Colors.grey,),),
+          Text(
+            "@2023, CentraLogic Pvt Ltd, All Rights Reserved",
+            style: TextStyle(
+              fontSize:15,
+              color:Colors.grey,
+              ),
+            ),
         ],
       ),
     ],

@@ -4,272 +4,250 @@ import 'package:assignment/sign_up/documents/team.dart';
 import 'package:assignment/sign_up/documents/transaction.dart';
 import 'package:flutter/material.dart';
 
-class SideNavBar extends StatefulWidget {
+class DekstopScreen extends StatefulWidget {
+  const DekstopScreen({super.key});
+
   @override
-  State<SideNavBar> createState() => _SideNavBarState();
+  State<DekstopScreen> createState() => _DekstopScreenState();
 }
 
-class _SideNavBarState extends State<SideNavBar> {
-  int currentTabIndex=1;
+class _DekstopScreenState extends State<DekstopScreen> {
+  int _selectedIndex = 1;
+  NavigationRailLabelType labelType = NavigationRailLabelType.all;
+
+  double groupAlignment = -1.0;
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Row(
-        children: [
-          if (screenWidth > 600)
-            Container(
-              width: 246,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(22.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      "images/logo.png",
-                      width: 198,
-                      height: 43.26,
-                    ),
-                    Divider(
-                      thickness: 0.1,
-                      color: Colors.black,
-                    ),
-                    ListTile(
-                      leading: IconButton(
-                        icon: Icon(Icons.home),
-                        onPressed: () => {},
-                      ),
-                      title: Text('Home'),
-                      onTap: () {
-                        // Handle home navigation
-                      },
-                    ),
-                    ListTile(
-                      leading: IconButton(
-                        icon: Icon(Icons.document_scanner),
-                        onPressed: () => {},
-                      ),
-                      title: Text('Documents'),
-                      onTap: () {
-                        // Handle documents navigation
-                      },
-                    ),
-                  ],
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Image.asset("images/logo.png"),
+              ),
+              Center(
+                child: Container(
+                  height: 0.5,
+                  width: 200,
+                  margin: EdgeInsets.all(15),
+                  color: Colors.grey,
                 ),
               ),
-            ),
-          VerticalDivider(
-            thickness: 0.1,
-            color: Colors.black,
+              SizedBox(
+                  width: 200,
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Image.asset("images/homeIcon.png"),
+                        title: Text('Home'),
+                        onTap: () {
+                          setState(() {
+                            _selectedIndex = 1;
+                          });
+                        },
+                      ),
+                      ListTile(
+                        leading: Image.asset("images/documentIcon.png"),
+                        title: Text('Documents'),
+                        onTap: () {
+                          setState(() {
+                            _selectedIndex = 2;
+                          });
+                        },
+                      ),
+                    ],
+                  )),
+            ],
           ),
+          const VerticalDivider(thickness: 1, width: 1),
+          // This is the main content.
           Expanded(
-            child: Scaffold(
-              appBar: AppBar(
-                toolbarHeight: 68,
-                actions: [
-                  Container(
-                    width: 142,
-                    height: 42,
-                    margin: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 0.1,
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 15,
-                            backgroundImage: NetworkImage('images/charles.png'),
-                          ),
-                          SizedBox(width: 8),
-                          Text(
-                            'Charles',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              body: Container(
-                height: 340,
-                child: Column(
-                  children: [
-                    const Row(
-                      children: [
-                        Text(
-                          "Documents",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      children: [
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap:() {
-                                setState(() {
-                                  currentTabIndex=1;
-                                });
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(10),
-                                    topLeft: Radius.circular(10),
-                                    bottomRight: Radius.circular(currentTabIndex ==1 ? 10:0),
-                                    topRight: Radius.circular(currentTabIndex ==1 ? 10:0)  
-                                  ),
-                                  color: currentTabIndex==1 ? const Color.fromARGB(255, 21, 58, 131) : Colors.grey.shade200
-                                  
-                                ),
-                                child: Text("Joining Document",style: TextStyle(color: currentTabIndex==1 ?Colors.white :Colors.grey),)
-                              ),
-                            ),
-                            InkWell(
-                              onTap:() {
-                                setState(() {
-                                  currentTabIndex=2;
-                                });
-                              },
-                              
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(currentTabIndex==2 ? 10:0),
-                                  color: currentTabIndex==2 ? const Color.fromARGB(255, 21, 58, 131) : Colors.grey.shade200
-                                ),
-                                child: Text("Transaction Document",style: TextStyle(color: currentTabIndex==2 ?Colors.white :Colors.grey))
-                              ),
-                            ),
-                            InkWell(
-                              onTap:() {
-                                setState(() {
-                                  currentTabIndex=3;
-                                });
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(currentTabIndex==3 ? 10:0),
-                                  color: currentTabIndex==3 ? const Color.fromARGB(255, 21, 58, 131) : Colors.grey.shade200
-                                ),
-                                child: Text("Team Document",style: TextStyle(color: currentTabIndex==3 ?Colors.white :Colors.grey))
-                              ),
-                            ),
-                            InkWell(
-                              onTap:() {
-                                setState(() {
-                                  currentTabIndex=4;
-                                });
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(10),
-                                    topRight: Radius.circular(10),
-                                    bottomLeft: Radius.circular(currentTabIndex ==4 ? 10:0),
-                                    topLeft: Radius.circular(currentTabIndex ==4 ? 10:0)  
-                                  ),                                  
-                                color: currentTabIndex==4 ? const Color.fromARGB(255, 21, 58, 131) : Colors.grey.shade200
-                                ),
-                                child: Text("Tax Document",style: TextStyle(color: currentTabIndex==4 ?Colors.white :Colors.grey))
-                              ),
-                            ),
-                          ],
-                        ),
-
-
-                        SizedBox(height: 10),
-                       
-                        currentTabIndex==1?JoiningDocument():currentTabIndex==2?TransactionDocument():currentTabIndex==3?TeamDocument():TaxDocument()
-
-                      ],
-                    ),
-                    
-                  ],
-                ),
-              ),
-            ),
-          ),
+              child: _selectedIndex == 1
+                  ? const Center(
+                      child: Text("Home page"),
+                    )
+                  : DocumentTypes()),
         ],
       ),
     );
   }
 }
 
+class DocumentTypes extends StatefulWidget {
+  const DocumentTypes({super.key});
 
+  @override
+  State<DocumentTypes> createState() => _DocumentTypesState();
+}
 
-
-
-
-
-
-
-
-
-
-
-// // TabBar(
-// //                               indicator: BoxDecoration(
-// //                                 color: const Color.fromARGB(255, 17, 55, 86),
-// //                                 borderRadius: BorderRadius.circular(10.0),
-// //                               ),
-// //                               indicatorSize: TabBarIndicatorSize.tab,
-// //                               tabs: const [
-// //                                 Tab(
-                              
-// //                                   child: Text(
-// //                                     'Joining Document',
-// //                                     style: TextStyle(
-// //                                         fontWeight: FontWeight.bold,
-// //                                         fontSize: 16,
-// //                                         color: Colors.grey),
-// //                                   ),
-// //                                 ),
-// //                                 Tab(
-// //                                   child: Text(
-// //                                     'Transaction Document',
-// //                                     style: TextStyle(
-// //                                         fontWeight: FontWeight.bold,
-// //                                         fontSize: 16,
-// //                                         color: Colors.grey),
-// //                                   ),
-// //                                 ),
-// //                                 Tab(
-// //                                   child: Text(
-// //                                     'Team Document',
-// //                                     style: TextStyle(
-// //                                         fontWeight: FontWeight.bold,
-// //                                         fontSize: 16,
-// //                                         color: Colors.grey),
-// //                                   ),
-// //                                 ),
-// //                                 Tab(
-// //                                   child: Text(
-// //                                     'Tax Document',
-// //                                     style: TextStyle(
-// //                                         fontWeight: FontWeight.bold,
-// //                                         fontSize: 16,
-// //                                         color: Colors.grey),
-// //                                   ),
-// //                                 ),
-// //                               ],
-// //                             ),
+class _DocumentTypesState extends State<DocumentTypes> {
+  int currentTabIndex = 1;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: SizedBox(
+          height: 0,
+          width: 0,
+        ),
+        toolbarHeight: 150,
+        leadingWidth: 0,
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(color: Colors.grey, width: 0.4)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      CircleAvatar(
+                        radius: 15,
+                        backgroundImage: NetworkImage('images/charles.png'),
+                      ),
+                      SizedBox(width: 8),
+                      Text("Charles"),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      
+                      Icon(Icons.keyboard_arrow_down_outlined)
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Text(
+              "Documents",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        currentTabIndex = 1;
+                      });
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                topLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(
+                                    currentTabIndex == 1 ? 10 : 0),
+                                topRight: Radius.circular(
+                                    currentTabIndex == 1 ? 10 : 0)),
+                            color: currentTabIndex == 1
+                                ? const Color.fromARGB(255, 21, 58, 131)
+                                : Colors.grey.shade200),
+                        child: Text(
+                          "Joining Document",
+                          style: TextStyle(
+                              color: currentTabIndex == 1
+                                  ? Colors.white
+                                  : Colors.grey),
+                        )),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        currentTabIndex = 2;
+                      });
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                                currentTabIndex == 2 ? 10 : 0),
+                            color: currentTabIndex == 2
+                                ? const Color.fromARGB(255, 21, 58, 131)
+                                : Colors.grey.shade200),
+                        child: Text("Transaction Document",
+                            style: TextStyle(
+                                color: currentTabIndex == 2
+                                    ? Colors.white
+                                    : Colors.grey))),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        currentTabIndex = 3;
+                      });
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                                currentTabIndex == 3 ? 10 : 0
+                              ),
+                            color: currentTabIndex == 3
+                                ? const Color.fromARGB(255, 21, 58, 131)
+                                : Colors.grey.shade200),
+                        child: Text("Team Document",
+                            style: TextStyle(
+                                color: currentTabIndex == 3
+                                    ? Colors.white
+                                    : Colors.grey))),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        currentTabIndex = 4;
+                      });
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                                bottomLeft: Radius.circular(
+                                    currentTabIndex == 4 ? 10 : 0),
+                                topLeft: Radius.circular(
+                                    currentTabIndex == 4 ? 10 : 0)),
+                            color: currentTabIndex == 4
+                                ? const Color.fromARGB(255, 21, 58, 131)
+                                : Colors.grey.shade200),
+                        child: Text("Tax Document",
+                            style: TextStyle(
+                                color: currentTabIndex == 4
+                                    ? Colors.white
+                                    : Colors.grey))),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+      body: currentTabIndex == 1
+          ? JoiningDocument()
+          : currentTabIndex == 2
+              ? TransactionDocument()
+              : currentTabIndex == 3
+                  ? TeamDocument()
+                  : TaxDocument(),
+    );
+  }
+}
