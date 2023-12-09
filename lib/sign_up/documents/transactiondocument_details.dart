@@ -8,13 +8,14 @@ class TransactionDocumentDetails extends StatelessWidget {
   final address;
   final id;
   final List<Document> documents;
-  const TransactionDocumentDetails({super.key, this.address, this.id, required this.documents});
+  const TransactionDocumentDetails(
+      {super.key, this.address, this.id, required this.documents});
 
   Future<void> _launchUrl(_url) async {
-  if (!await launchUrl(_url)) {
-    throw Exception('Could not launch $_url');
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -38,25 +39,27 @@ class TransactionDocumentDetails extends StatelessWidget {
               const Divider(height: 1, thickness: 0.1, color: Colors.grey),
               const SizedBox(height: 15.0),
               const Text("Document Name"),
-              ...documents.map((document) => Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(document.title.toString()),
-                    GestureDetector(
-                      child: Image.asset("images/eye.png"),
-                      onTap: () async {
-                        final Uri url = Uri.parse(document.url);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PDFViewerScreen(pdfUrl: url.toString()),
+              ...documents
+                  .map((document) => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(document.title.toString()),
+                          GestureDetector(
+                            child: Image.asset("images/eye.png"),
+                            onTap: () async {
+                              final Uri url = Uri.parse(document.url);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      PDFViewerScreen(pdfUrl: url.toString()),
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
-                    ),
-
-                  ],
-                )).toList()
+                        ],
+                      ))
+                  .toList()
             ],
           ),
         )
@@ -65,10 +68,6 @@ class TransactionDocumentDetails extends StatelessWidget {
     );
   }
 }
-
-
-
-
 
 class PDFViewerScreen extends StatelessWidget {
   final String pdfUrl;
