@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:assignment/sign_up/documents/transactiondocument_details.dart';
 import 'package:flutter/material.dart';
-import 'commonwidgte.dart';
+import 'commonwidget.dart';
 import 'jsontodart.dart';
 
 class TransactionDocument extends StatefulWidget {
@@ -27,7 +27,7 @@ class _TransactionDocumentState extends State<TransactionDocument> {
     Welcome welcome = Welcome.fromJson(json.decode(jsonData));
     transactions = welcome.value.first.transaction;
 
-    // Update the UI
+    // Update my   UI
     setState(() {});
   }
 

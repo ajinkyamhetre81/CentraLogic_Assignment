@@ -1,3 +1,4 @@
+import 'package:assignment/sign_up/presentation/document_dekstop_view.dart';
 import 'package:assignment/sign_up/presentation/responsive_layout.dart';
 import 'package:assignment/sign_up/bloc/sign_up_bloc.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Register',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const MyHomePage(),
+      home: const DekstopScreen(),
     );
   }
 }
