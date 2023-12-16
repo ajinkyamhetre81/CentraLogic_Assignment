@@ -118,6 +118,7 @@ class _TransactionDocumentDetailsState
   @override
   void initState() {
     super.initState();
+    _transactionTitles = [];
     _loadDocuments();
   }
 
@@ -130,12 +131,12 @@ class _TransactionDocumentDetailsState
           jsonData['value'][0]['transaction'][0]['documents'];
       setState(() {
         _loadedDocuments =
-            documentList.map((doc) => Document.fromJson(doc)).toList();
+            documentList.map((doc ) => Document.fromJson(doc)).toList();
         _transactionTitles =
             documentList.map((doc) => doc['title'].toString()).toList();
       });
     } catch (e) {
-      print('Error loading JSON file: $e');
+      debugPrint('Error loading JSON file: $e');
     }
   }
 
@@ -152,7 +153,7 @@ class _TransactionDocumentDetailsState
     return InkWell(
       onTap: () async {
         final String url = _loadedDocuments
-            .firstWhere((doc) => doc.title == title)
+            .firstWhere((doc ) => doc.title == title)
             .url;
         _openTransactionUrl(url);
       },
