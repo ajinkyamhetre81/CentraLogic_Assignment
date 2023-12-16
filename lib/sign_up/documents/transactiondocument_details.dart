@@ -208,7 +208,7 @@ class PDFViewerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(pdfUrl)),
+      appBar: AppBar(title: Text("PDF Viewer")),
       body: SfPdfViewer.network(
         pdfUrl,
         controller: PdfViewerController(),
