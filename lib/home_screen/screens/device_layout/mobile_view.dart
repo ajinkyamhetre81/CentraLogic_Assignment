@@ -1,9 +1,9 @@
-import 'package:assignment/sign_up/documents/joining.dart';
+import 'package:assignment/home_screen/screens/document_UI/joining.dart';
 import 'package:flutter/material.dart';
 
-import '../documents/tax.dart';
-import '../documents/team.dart';
-import '../documents/transaction.dart';
+import '../document_UI/tax.dart';
+import '../document_UI/team.dart';
+import '../document_UI/transaction.dart';
 
 class MobileScreen extends StatefulWidget {
   const MobileScreen({super.key});
@@ -170,24 +170,6 @@ class DocumentPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class DocumentMenuItem extends StatelessWidget {
-  final String title;
-
-  const DocumentMenuItem(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        title,
-        style: const TextStyle(fontSize: 22),
-      ),
-      trailing: const Icon(Icons.chevron_right),
-      onTap: () {},
     );
   }
 }

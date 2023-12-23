@@ -86,9 +86,9 @@
 //     );
 //   }
 // }
+import 'package:assignment/home_screen/models/document_model.dart';
 import 'package:flutter/material.dart';
-import 'commonwidget.dart';
-import 'jsontodart.dart';
+import '../widgets/commonwidget.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';

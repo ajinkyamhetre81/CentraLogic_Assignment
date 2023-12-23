@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:assignment/sign_up/documents/transactiondocument_details.dart';
+import 'package:assignment/home_screen/models/document_model.dart';
+import 'package:assignment/home_screen/screens/document_UI/transactiondocument_details.dart';
 import 'package:flutter/material.dart';
-import 'commonwidget.dart';
-import 'jsontodart.dart';
+import '../widgets/commonwidget.dart';
 
 class TransactionDocument extends StatefulWidget {
   const TransactionDocument({super.key});

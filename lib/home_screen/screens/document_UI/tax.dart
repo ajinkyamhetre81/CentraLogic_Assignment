@@ -1,18 +1,17 @@
-
 import 'package:flutter/material.dart';
-import 'commonwidget.dart';
+import '../widgets/commonwidget.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-class TeamDocument extends StatefulWidget {
-  const TeamDocument({Key? key}) : super(key: key);
+class TaxDocument extends StatefulWidget {
+  const TaxDocument({Key? key}) : super(key: key);
 
   @override
-  State<TeamDocument> createState() => _TeamDocumentState();
+  State<TaxDocument> createState() => _TaxDocumentState();
 }
 
-class _TeamDocumentState extends State<TeamDocument> {
-  List<Map<String, dynamic>> teamDocuments = [];
+class _TaxDocumentState extends State<TaxDocument> {
+  List<Map<String, dynamic>> taxDocuments = [];
 
   @override
   void initState() {
@@ -25,10 +24,10 @@ class _TeamDocumentState extends State<TeamDocument> {
       String jsonString = await rootBundle.loadString('assets/documentjson.json');
       Map<String, dynamic> jsonData = jsonDecode(jsonString);
 
-      List<dynamic> teamList = jsonData['value'][0]['team'];
+      List<dynamic> taxList = jsonData['value'][0]['tax'];
 
       setState(() {
-        teamDocuments = List<Map<String, dynamic>>.from(teamList);
+        taxDocuments = List<Map<String, dynamic>>.from(taxList);
       });
     } catch (e) {
       print('Error loading JSON file: $e');
@@ -40,12 +39,12 @@ class _TeamDocumentState extends State<TeamDocument> {
     return Scaffold(
       body: Column(
         children: [
-          customAppBar(context, "Team Document"),
+          customAppBar(context, "Tax Document"),
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Column(
               children: [
-                for (var item in teamDocuments)
+                for (var item in taxDocuments)
                   customListTile(
                     item["title"] ?? "",
                     item["size"] ?? "",
@@ -58,10 +57,9 @@ class _TeamDocumentState extends State<TeamDocument> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
   }
 }
-

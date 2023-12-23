@@ -30,13 +30,7 @@ class CRUDScreenState extends State<CRUDScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CRUD Operations'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        title: const Text('Crud Operations'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -48,37 +42,37 @@ class CRUDScreenState extends State<CRUDScreen> {
                 Expanded(
                   child: TextField(
                     controller: nameController,
-                    decoration: InputDecoration(labelText: 'Name'),
+                    decoration: const InputDecoration(labelText: 'Name'),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
                     controller: contactController,
-                    decoration: InputDecoration(labelText: 'Contact'),
+                    decoration: const InputDecoration(labelText: 'Contact'),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
                     controller: emailController,
-                    decoration: InputDecoration(labelText: 'Email'),
+                    decoration: const InputDecoration(labelText: 'Email'),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: addNewData,
-                  child: Text('Add'),
+                  child: const Text('Add'),
                 ),
               ],
             ),
-            SizedBox(height: 60),
-            Text(
+            const SizedBox(height: 60),
+            const Text(
               "Details",
               style: TextStyle(fontSize: 30, color: Colors.blue),
             ),
             DataTable(
-              columns: [
+              columns: const [
                 DataColumn(label: Text('Name')),
                 DataColumn(label: Text('Contact')),
                 DataColumn(label: Text('Email')),

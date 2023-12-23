@@ -1,7 +1,7 @@
-import 'package:assignment/sign_up/documents/joining.dart';
-import 'package:assignment/sign_up/documents/tax.dart';
-import 'package:assignment/sign_up/documents/team.dart';
-import 'package:assignment/sign_up/documents/transaction.dart';
+import 'package:assignment/home_screen/screens/document_UI/joining.dart';
+import 'package:assignment/home_screen/screens/document_UI/tax.dart';
+import 'package:assignment/home_screen/screens/document_UI/team.dart';
+import 'package:assignment/home_screen/screens/document_UI/transaction.dart';
 import 'package:flutter/material.dart';
 
 class DekstopScreen extends StatefulWidget {
@@ -44,7 +44,7 @@ class _DekstopScreenState extends State<DekstopScreen> {
                     children: [
                       ListTile(
                         leading: Image.asset("assets/homeIcon.png"),
-                        title: const Text('Home'),
+                        title:  const Text("Home"),
                         onTap: () {
                           setState(() {
                             _selectedIndex = 1;

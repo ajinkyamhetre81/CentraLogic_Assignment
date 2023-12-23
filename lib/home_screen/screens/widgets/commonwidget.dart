@@ -1,4 +1,4 @@
-import 'package:assignment/sign_up/documents/transactiondocument_details.dart';
+import 'package:assignment/home_screen/screens/document_UI/transactiondocument_details.dart';
 import 'package:flutter/material.dart';
 
 Widget customAppBar(context, String title) {

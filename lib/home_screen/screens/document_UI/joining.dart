@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'commonwidget.dart';
+import '../widgets/commonwidget.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 

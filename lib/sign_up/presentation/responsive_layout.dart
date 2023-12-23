@@ -1,7 +1,7 @@
 import 'package:assignment/sign_up/bloc/sign_up_event.dart';
 import 'package:assignment/sign_up/bloc/sign_up_state.dart';
-import 'package:assignment/sign_up/presentation/document_dekstop_view.dart';
-import 'package:assignment/sign_up/presentation/document_mobile_view.dart';
+import 'package:assignment/home_screen/screens/device_layout/dekstop_view.dart';
+import 'package:assignment/home_screen/screens/device_layout/mobile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
